@@ -7,7 +7,7 @@ You can see the source code of this lib inside the  [/lib](https://github.com/nn
 
 ### Show some  ❤️  and star the repo to support this project
 
-## Demo example (Movil)
+## Demo example (Mobile)
 ![](https://raw.githubusercontent.com/nnior/bottom_personalized_dot_bar/master/screenshots/phone.gif)
 
 ## Demo example (Tablet 1)
