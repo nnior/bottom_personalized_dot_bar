@@ -1,8 +1,8 @@
 name: bottom_personalized_dot_bar
 description: Bottom Personalized Dot Bar.
 version: 1.0.0
-author:
-homepage:
+author: Juan <nano.nnior@gmail.com>
+homepage: https://github.com/nnior/bottom_personalized_dot_bar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
