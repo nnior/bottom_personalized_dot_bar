@@ -5,44 +5,101 @@ import 'dart:async';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
+/// [BottomPersonalizedDotBar] Parent class to create a custom navigation bar
 class BottomPersonalizedDotBar extends StatefulWidget {
+
+  /// List of items to be displayed in the navigation bar
   final List<BottomPersonalizedDotBarItem> items;
+
+  /// List of items that will be hidden
   final List<BottomPersonalizedDotBarItem> hiddenItems;
-  final double width;
-  final double height;
-  final BorderRadius borderRadius;
-  final Color selectedColorIcon;
-  final Color unSelectedColorIcon;
-  final Color navigatorBackground;
-  final Color settingBackground;
-  final Color iconSettingColor;
-  final Color buttonDoneColor;
-  final Color settingTitleColor;
-  final Color settingSubTitleColor;
-  final Color hiddenItemBackground;
-  final Color textDoneColor;
-  final Color iconHiddenColor;
-  final Color textHiddenColor;
-  final Color dotColor;
-  final IconData iconSetting;
-  final String settingTitleText;
-  final String settingSubTitleText;
-  final String doneText;
-  final List<BoxShadow> boxShadow;
-  final Function(List<BottomPersonalizedDotBarItem> hiddenItems) onOrderHideItems;
-  final Function(List<BottomPersonalizedDotBarItem> items) onOrderItems;
-  final Function(BottomPersonalizedDotBarItem itemAdd, List<BottomPersonalizedDotBarItem> items) onAddItem;
-  final Function(BottomPersonalizedDotBarItem itemRemove, List<BottomPersonalizedDotBarItem> hiddenItems) onRemoveItem;
+
+  /// Item key that is selected
   final String keyItemSelected;
 
+  /// Navigation bar width
+  final double width;
+
+  /// Navigation bar height
+  final double height;
+
+  /// Navigation bar radius
+  final BorderRadius borderRadius;
+
+  /// Selected Icon color
+  final Color selectedColorIcon;
+
+  /// Unselected Icon color
+  final Color unSelectedColorIcon;
+
+  /// Navigator Container Background color
+  final Color navigatorBackground;
+
+  /// Setting Container Background color (Hidden items)
+  final Color settingBackground;
+
+  /// Settings button icon
+  final IconData iconSetting;
+
+  /// Settings button icon color
+  final Color iconSettingColor;
+
+  /// Setting Title Text
+  final String settingTitleText;
+
+  /// Setting Title color
+  final Color settingTitleColor;
+
+  /// Setting Sub-Title Text
+  final String settingSubTitleText;
+
+  /// Setting Sub-Title color
+  final Color settingSubTitleColor;
+
+  /// Done button Text
+  final String doneText;
+
+  /// Text Done Color
+  final Color textDoneColor;
+
+  /// Button done color
+  final Color buttonDoneColor;
+
+  /// Background of hidden item
+  final Color hiddenItemBackground;
+
+  /// Icon Hidden Color
+  final Color iconHiddenColor;
+
+  /// Text Hidden Color
+  final Color textHiddenColor;
+
+  /// Selection Indicator Color (Dot|Point)
+  final Color dotColor;
+
+  /// Shadow of container
+  final List<BoxShadow> boxShadow;
+
+  /// Event when you sort the hidden options, this has as parameter the list of hidden options with the new order.
+  final Function(List<BottomPersonalizedDotBarItem> hiddenItems) onOrderHideItems;
+
+  /// Event when ordering browser options, this has as parameter the list of options with the new order.
+  final Function(List<BottomPersonalizedDotBarItem> items) onOrderItems;
+
+  /// Event when you add a new option to the navigation bar, this has as parameters the item you add and the list of options.
+  final Function(BottomPersonalizedDotBarItem itemAdd, List<BottomPersonalizedDotBarItem> items) onAddItem;
+
+  /// Event when you delete an option from the navigation bar, this has as parameters the element to delete and the list of hidden options.
+  final Function(BottomPersonalizedDotBarItem itemRemove, List<BottomPersonalizedDotBarItem> hiddenItems) onRemoveItem;
+
+  /// Constructor
   const BottomPersonalizedDotBar(
       {@required this.items,
       @required this.hiddenItems,
       Key key,
       this.width,
       this.height = 110.0,
-      this.borderRadius =
-          const BorderRadius.vertical(top: const Radius.circular(60.0)),
+      this.borderRadius = const BorderRadius.vertical(top: const Radius.circular(60.0)),
       this.selectedColorIcon = const Color(0xBB000000),
       this.unSelectedColorIcon = Colors.black38,
       this.boxShadow,
@@ -1001,12 +1058,21 @@ class _HiddenMenuOption extends StatelessWidget {
   }
 }
 
+/// [BottomPersonalizedDotBarItem] Represents an item, it can be hidden or in the navigation bar
 class BottomPersonalizedDotBarItem {
+  /// Unique key
   final String keyItem;
+
+  /// Item icon
   final IconData icon;
+
+  /// Item name
   final Function(String) onTap;
+
+  /// Event with you press the item.
   final String name;
 
+  /// Constructor
   const BottomPersonalizedDotBarItem(this.keyItem,
       {this.name, this.icon, this.onTap});
 }

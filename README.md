@@ -34,7 +34,7 @@ You can see the source code of this lib inside the  [/lib](https://github.com/nn
 ```yaml
 dependencies:
   ...
-  bottom_personalized_dot_bar: ^1.0.0
+  bottom_personalized_dot_bar: ^1.0.1
 ```
 
 ### Import the package
@@ -97,7 +97,6 @@ Scaffold(
 |`keyItemSelected`| Item key that is selected
 |`width`| Navigation bar width
 |`height`| Navigation bar height
-|`dotColor`| Selection Indicator Color (Dot|Point)
 |`borderRadius`| Navigation bar radius
 |`selectedColorIcon`| Selected Icon color
 |`unSelectedColorIcon`| Unselected Icon color
@@ -105,16 +104,17 @@ Scaffold(
 |`settingBackground`| Setting Container Background color (Hidden items)
 |`iconSetting`| Settings button icon
 |`iconSettingColor`| Settings button icon color
-|`buttonDoneColor`| Button done color
+|`settingTitleText`| Setting Title Text
 |`settingTitleColor`| Setting Title color
+|`settingSubTitleText`| Setting Sub-Title Text
 |`settingSubTitleColor`| Setting Sub-Title color
-|`hiddenItemBackground`| Background of hidden item
+|`doneText`| Done button Text
 |`textDoneColor`| Text Done Color
+|`buttonDoneColor`| Button done color
+|`hiddenItemBackground`| Background of hidden item
 |`iconHiddenColor`| Icon Hidden Color
 |`textHiddenColor`| Text Hidden Color
-|`settingTitleText`| Setting Title Text
-|`settingSubTitleText`| Setting Sub-Title Text
-|`doneText`| Done button Text
+|`dotColor`| Selection Indicator Color (Dot|Point)
 |`boxShadow`| Shadow of container
 |`onOrderHideItems`| Event when you sort the hidden options, this has as parameter the list of hidden options with the new order. `onOrderHideItems: (List<BottomPersonalizedDotBarItem> hiddenItems) { /* Your action */ }`
 |`onOrderItems`| Event when ordering browser options, this has as parameter the list of options with the new order `onOrderItems: (List<BottomPersonalizedDotBarItem> items) { /* Your action */ }`
