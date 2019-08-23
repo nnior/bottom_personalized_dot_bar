@@ -237,8 +237,7 @@ class _BottomPersonalizedDotBarState extends State<BottomPersonalizedDotBar> {
               _translateHiddenItemList = _translateHiddenItemList
                   .map((value) => value == .0 ? .0 : 105.0)
                   .toList();
-              final heightYPosition =
-                  MediaQuery.of(context).size.height - widget.height;
+              final heightYPosition = MediaQuery.of(context).size.height - widget.height;
               _positionDrag = Offset(
                   (indexPositionHidden != -1
                               ? indexPositionHidden
@@ -247,7 +246,7 @@ class _BottomPersonalizedDotBarState extends State<BottomPersonalizedDotBar> {
                       _differenceWidthContainer() +
                       35.0 -
                       _scrollController.offset,
-                  heightYPosition - 122.0);
+                  heightYPosition - 121.0);
               _animationItemNavigator = false;
               _executeAfterAnimation(() {
                 _removeItemList(
@@ -710,7 +709,7 @@ class _BottomPersonalizedDotBarState extends State<BottomPersonalizedDotBar> {
                   ? const NeverScrollableScrollPhysics()
                   : null,
               padding: EdgeInsets.only(
-                  bottom: 110.0,
+                  bottom: widget.height,
                   left: 35.0,
                   right: _draggedItem != null ? 120.0 : 15.0),
               child: Row(children: _buildHiddenItemList(_internalHiddenItems)),
