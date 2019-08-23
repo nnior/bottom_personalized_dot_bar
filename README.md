@@ -3,7 +3,7 @@ A bottom navigation bar that you can customize with the options you need, withou
 
 The development was inspired by the following design: [personalized-tab-bar](https://www.uplabs.com/posts/personalized-tab-bar)
 
-You can see the source code of this lib inside the  [/lib](https://github.com/nnior/nnior_pos_app/bottom_personalized_dot_bar/tree/master/lib)  folder.
+You can see the source code of this lib inside the  [/lib](https://github.com/nnior/bottom_personalized_dot_bar/tree/master/lib)  folder.
 
 ### Show some  ❤️  and star the repo to support this project
 
