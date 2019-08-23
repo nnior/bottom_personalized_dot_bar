@@ -34,7 +34,7 @@ You can see the source code of this lib inside the  [/lib](https://github.com/nn
 ```yaml
 dependencies:
   ...
-  bottom_personalized_dot_bar: ^1.0.1
+  bottom_personalized_dot_bar: ^1.0.2
 ```
 
 ### Import the package
