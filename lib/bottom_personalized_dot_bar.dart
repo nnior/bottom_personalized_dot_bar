@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 /// [BottomPersonalizedDotBar] Parent class to create a custom navigation bar
 class BottomPersonalizedDotBar extends StatefulWidget {
-
   /// List of items to be displayed in the navigation bar
   final List<BottomPersonalizedDotBarItem> items;
 
@@ -81,16 +80,19 @@ class BottomPersonalizedDotBar extends StatefulWidget {
   final List<BoxShadow> boxShadow;
 
   /// Event when you sort the hidden options, this has as parameter the list of hidden options with the new order.
-  final Function(List<BottomPersonalizedDotBarItem> hiddenItems) onOrderHideItems;
+  final Function(List<BottomPersonalizedDotBarItem> hiddenItems)
+      onOrderHideItems;
 
   /// Event when ordering browser options, this has as parameter the list of options with the new order.
   final Function(List<BottomPersonalizedDotBarItem> items) onOrderItems;
 
   /// Event when you add a new option to the navigation bar, this has as parameters the item you add and the list of options.
-  final Function(BottomPersonalizedDotBarItem itemAdd, List<BottomPersonalizedDotBarItem> items) onAddItem;
+  final Function(BottomPersonalizedDotBarItem itemAdd,
+      List<BottomPersonalizedDotBarItem> items) onAddItem;
 
   /// Event when you delete an option from the navigation bar, this has as parameters the element to delete and the list of hidden options.
-  final Function(BottomPersonalizedDotBarItem itemRemove, List<BottomPersonalizedDotBarItem> hiddenItems) onRemoveItem;
+  final Function(BottomPersonalizedDotBarItem itemRemove,
+      List<BottomPersonalizedDotBarItem> hiddenItems) onRemoveItem;
 
   /// Constructor
   const BottomPersonalizedDotBar(
@@ -99,7 +101,8 @@ class BottomPersonalizedDotBar extends StatefulWidget {
       Key key,
       this.width,
       this.height = 110.0,
-      this.borderRadius = const BorderRadius.vertical(top: const Radius.circular(60.0)),
+      this.borderRadius =
+          const BorderRadius.vertical(top: const Radius.circular(60.0)),
       this.selectedColorIcon = const Color(0xBB000000),
       this.unSelectedColorIcon = Colors.black38,
       this.boxShadow,
@@ -262,30 +265,45 @@ class _BottomPersonalizedDotBarState extends State<BottomPersonalizedDotBar> {
               _executeAfterAnimation(_resetOperators);
             }
           } else if (event.typeMenuOption == _TypeMenuOption.HIDDEN) {
-            if (initYPositionDrag >= 80.0 && (xPosition >= -135.0 && xPosition <= (_widthBase - 165))) {
+            if (initYPositionDrag >= 80.0 &&
+                (xPosition >= -135.0 && xPosition <= (_widthBase - 165))) {
               final indexItem = _internalHiddenItems.indexOf(_draggedItem);
-              _translateHiddenItemList = _translateHiddenItemList.map((value) => .0).toList();
-              final indexNavigator = _translateItemList.indexWhere((value) => !value.isNegative) != -1
+              _translateHiddenItemList =
+                  _translateHiddenItemList.map((value) => .0).toList();
+              final indexNavigator = _translateItemList
+                          .indexWhere((value) => !value.isNegative) !=
+                      -1
                   ? _translateItemList.indexWhere((value) => !value.isNegative)
                   : _translateItemList.length;
-              final yPosition = MediaQuery.of(context).size.height - (widget.height * 0.5);
+              final yPosition =
+                  MediaQuery.of(context).size.height - (widget.height * 0.5);
               double differenceWidth = _differenceWidthContainer() - 110.0;
-              final double positionX = (_widthBase / (_internalItems.length + 1) * 0.5) * (indexNavigator + (indexNavigator + 1));
-              _positionDrag = Offset(differenceWidth + positionX - 42.5, yPosition - 34);
+              final double positionX =
+                  (_widthBase / (_internalItems.length + 1) * 0.5) *
+                      (indexNavigator + (indexNavigator + 1));
+              _positionDrag =
+                  Offset(differenceWidth + positionX - 42.5, yPosition - 34);
               _animationItemNavigator = false;
               _executeAfterAnimation(() {
                 _insertItemToNavigator(indexItem, indexNavigator);
                 _translateItemList = [];
                 _resetOperators();
               });
-            } else if ((initYPositionDrag >= -105.0 && initYPositionDrag <= 105.0) && (xPosition >= -80.0 && xPosition <= (_widthBase - 20))) {
+            } else if ((initYPositionDrag >= -105.0 &&
+                    initYPositionDrag <= 105.0) &&
+                (xPosition >= -80.0 && xPosition <= (_widthBase - 20))) {
               final oldIndex = _internalHiddenItems.indexOf(_draggedItem);
-              final previewValue = oldIndex != 0 ? _translateHiddenItemList[oldIndex - 1] : .0;
-              final nextValue = (oldIndex + 1) != _internalHiddenItems.length ? _translateHiddenItemList[oldIndex + 1] : -1.0;
+              final previewValue =
+                  oldIndex != 0 ? _translateHiddenItemList[oldIndex - 1] : .0;
+              final nextValue = (oldIndex + 1) != _internalHiddenItems.length
+                  ? _translateHiddenItemList[oldIndex + 1]
+                  : -1.0;
               if (previewValue != .0 || nextValue == .0) {
                 _translateHiddenItemList = _translateHiddenItemList
-                    .map((value) => value == .0 ? .0 : 105.0).toList();
-                final newIndex = _translateHiddenItemList.lastIndexWhere((value) => value == .0) +
+                    .map((value) => value == .0 ? .0 : 105.0)
+                    .toList();
+                final newIndex = _translateHiddenItemList
+                        .lastIndexWhere((value) => value == .0) +
                     (initXPositionDrag.isNegative ? 1 : 0);
                 _positionDrag = Offset(
                     newIndex * 105.0 +
@@ -581,8 +599,7 @@ class _BottomPersonalizedDotBarState extends State<BottomPersonalizedDotBar> {
                     child: Container(
                       transform: Matrix4.translationValues(.0, 25.0, .0),
                       child: CircleAvatar(
-                          radius: 2.5,
-                          backgroundColor: widget.dotColor),
+                          radius: 2.5, backgroundColor: widget.dotColor),
                     )),
                 duration: Duration(milliseconds: _settingVisible ? 200 : 400),
                 curve: Curves.ease,
